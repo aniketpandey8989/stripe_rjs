@@ -4,10 +4,15 @@ import "./index.css";
 import App from "./App";
 import { store } from "./store/configuraStore";
 import { Provider } from "react-redux";
+import Sidebar from "./views/sidebar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+    <div >
       <App />
+    </div>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
