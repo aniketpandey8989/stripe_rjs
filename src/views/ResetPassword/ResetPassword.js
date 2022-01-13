@@ -11,22 +11,18 @@ export default function ResetPassword(props) {
     });
   };
 
-  React.useEffect(() => {
-    getEmail();
-  }, []);
+  // React.useEffect(() => {
+  //   getEmail();
+  // }, []);
 
-  const getEmail = async () => {
-    if (props.match.params.token) {
-      const res = await getEmailByToken(props.match.params.token);
-      if (res && res.email) {
-        setEmail(res.email);
-      }
-    }
-  };
+  // const getEmail = async () => {
+  //   if (props.match.params.token) {
+  //     const res = await getEmailByToken(props.match.params.token);
+  //     if (res && res.email) {
+  //       setEmail(res.email);
+  //     }
+  //   }
+  // };
 
-  return (
-   <div>
-     this is the reset password page
-   </div>
-  );
+  return <div>this is the reset password page</div>;
 }

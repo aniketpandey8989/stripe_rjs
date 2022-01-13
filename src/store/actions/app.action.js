@@ -3,24 +3,6 @@ import { toaster } from "../../views/util";
 import { store } from "../configuraStore";
 import { App } from "../constants";
 
-export const appLoader = {
-  show: () => {
-    store.dispatch({
-      type: App.SHOW_LOADER,
-    });
-  },
-  hide: () => {
-    store.dispatch({
-      type: App.HIDE_LOADER,
-    });
-  },
-  reset: () => {
-    store.dispatch({
-      type: App.RESET_LOADER,
-    });
-  },
-};
-
 export const setAxiosCommonHeader = (key, value) => {
   axios.defaults.headers.common[key] = value;
 };
@@ -48,7 +30,6 @@ export const removeUserDetailsFromApp = () => {
 };
 
 export const callApi = async (URL, options = {}) => {
-  appLoader.show();
   try {
     const res = await axios({
       url: URL,
@@ -71,7 +52,5 @@ export const callApi = async (URL, options = {}) => {
         toaster.ERROR
       );
     }
-  } finally {
-    appLoader.hide();
-  }
+  } 
 };

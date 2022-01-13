@@ -25,25 +25,6 @@ export const signUp = async (data) => {
   }
 };
 
-export const emailVerification = async (token) => {
-  const res = await callApi(`${API.EMAIL_VERIFICATION}/${token}`, {
-    method: "POST",
-  });
-  return res;
-};
-
-export const forgotPassword = async (data) => {
-  const res = await callApi(API.FORGOT_PASSWORD, {
-    method: "POST",
-    data,
-  });
-  if (res && res.id) {
-    toaster.show("Password update request submited!");
-    return res;
-  }
-  return res;
-};
-
 export const updatePassword = async (data) => {
   const res = await callApi(API.UPDATE_PASSWORD, {
     method: "POST",
@@ -58,11 +39,5 @@ export const updatePassword = async (data) => {
   return res;
 };
 
-export const getEmailByToken = async (token) => {
-  const res = await callApi(`${API.GET_EMAIL_BY_TOKEN}/${token}`, {
-    method: "POST",
-  });
-  return res;
-};
 
 export const updateIsLoading = () => null;

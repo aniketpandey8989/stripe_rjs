@@ -1,11 +1,2 @@
 export * from "./app.action.js";
-// export * from "./addProduct.action.js";
 export * from "./auth.action.js";
-// export * from "./category.action.js";
-// export * from "./customizeProducts.action.js";
-// export * from "./order.action.js";
-// export * from "./payment.action.js";
-// export * from "./product.action.js";
-// export * from "./productColor.action.js";
-// export * from "./subCategory.action.js";
-// export * from "./tag.action.js";
