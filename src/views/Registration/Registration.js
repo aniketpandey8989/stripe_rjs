@@ -3,7 +3,6 @@ import React from "react";
 
 export default function Registration(props) {
   // const onSubmit = (data) => {
-  //   console.log(data, "form data");
   //   signUp(data).then((res) => {
   //     if (res && res.id) {
   //       props.history.push("/login");

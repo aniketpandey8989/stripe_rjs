@@ -14,9 +14,6 @@ function Loader() {
       }}
       className="d-flex justify-content-center align-items-center"
     >
-      {/* <Spinner variant="primary" animation="border" role="status">
-        <span className="sr-only">Loading...</span>
-      </Spinner> */}
     </div>
   );
 }

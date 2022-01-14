@@ -2,20 +2,18 @@ import { callApi, updatUserDetailInApp } from ".";
 import { API } from "../../config/index";
 import { toaster } from "../../views/util";
 export const login = async (data) => {
-  const res = await callApi(`${API.AUTH}/login`, {
+  const res = await callApi(`${API.LOGIN}`, {
     method: "POST",
     data,
   });
-
   if (res && res.id) {
     updatUserDetailInApp(res);
   }
-
   return res;
 };
 
 export const signUp = async (data) => {
-  const res = await callApi(`${API.AUTH}/register`, {
+  const res = await callApi(`${API.SIGN_UP}`, {
     method: "POST",
     data,
   });
@@ -30,14 +28,13 @@ export const updatePassword = async (data) => {
     method: "POST",
     data,
   });
-
   if (res && res.id) {
     toaster.show("Password updated successfully!");
     return res;
+  } else {
+    toaster.show(res.messageType, toaster.ERROR);
   }
-
   return res;
 };
-
 
 export const updateIsLoading = () => null;

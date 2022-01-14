@@ -1,11 +1,9 @@
 import { combineReducers } from "redux";
-import appReducer from "./app.reducer";
+import paymentReducer from './payment.reducer';
 
-// import paymentReducer from './payment';
-
-const createRootReducer = (his) =>
+const createRootReducer = () =>
   combineReducers({
-    app: appReducer,
+    payment: paymentReducer
   });
 
 export default createRootReducer;

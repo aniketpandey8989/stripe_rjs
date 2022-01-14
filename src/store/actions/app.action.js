@@ -29,22 +29,29 @@ export const removeUserDetailsFromApp = () => {
   localStorage.removeItem("userDetails");
 };
 
-export const callApi = async (URL, options = {}) => {
+export const callApi = async (URL, options = {}) => {      
   try {
-    const res = await axios({
+    const token = JSON.parse(localStorage.getItem('userDetails'))?.token
+    const res = await axios({ 
       url: URL,
       method: options.method || "GET",
       ...options,
+      headers : { 
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        ...options?.headers,
+        token
+      },
     });
     const data = res?.data;
-    console.log("api res data", res?.data);
     if (data.apiMessage && data.messageType) {
       toaster.show(data.apiMessage, data.messageType);
     }
     return data;
   } catch (err) {
     if (err?.response?.status === 401) {
-      toaster.show("Session Expired Please Re-Login!");
+      toaster.show("Session Expired Please Re-Login!",toaster.ERROR);
       removeUserDetailsFromApp();
     } else {
       toaster.show(
